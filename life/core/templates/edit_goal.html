@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <div class="row justify-content-center pt-5">
+        <div class="col col-4">
+
+            <h3 class="text-center">Editing "{{ goal.name }}"</h3>
+            <p></p>
+            {{ form.non_field_errors }}
+            <form action="" method="post">
+                {% csrf_token %}
+
+                <table>
+                    {{ form.as_table }}
+                </table>
+
+                <button class="btn btn-outline-dark" type="submit">Save</button>
+            </form>
+            <br>
+            <a class="btn btn-outline-danger btn-sm" href="{% url 'delete_goal' goal.id %}">Delete</a>
+
+        </div>
+    </div>
+
+{% endblock content %}

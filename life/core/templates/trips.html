@@ -1,0 +1,32 @@
+<div class="row justify-content-center">
+
+    <div class="col-sm-12">
+        <table class="table table-borderless table-hover table-sm">
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Cost</th>
+                <th scope="col">Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for goal in goals|dictsortreversed:"matrix" %}
+                {% if goal.get_type_display == "Trip"%}
+                    <tr {% if goal.completed %}class="goal bg-danger"{% elif goal.next %}class="bg-success"{% endif %}>
+                        <td><span class="badge badge-light">{{ goal.matrix_calculation }}</span>
+                            <a class="text-decoration-none text-reset" href="{% url 'edit_goal' goal.id %}">
+                                <span class="badge">{{ goal.name }}</span>
+                            </a>
+                        </td>
+                        <td>{{ goal.cost }}</td>
+                        <td>{{ goal.start_date|date:"SHORT_DATE_FORMAT" }}
+                            {% if goal.end_date %} - {{ goal.end_date|date:"SHORT_DATE_FORMAT" }}{% endif %}
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>

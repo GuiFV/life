@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <p>
+        <a class="btn btn-sm btn-dark" data-toggle="collapse" href="#collapseAgenda" role="button" aria-expanded="false" aria-controls="collapseAgenda">
+            Agenda
+        </a>
+    </p>
+
+    <div class="collapse" id="collapseAgenda">
+        <div class="card card-body">
+            <iframe class="text-center" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Europe%2FLondon&showTitle=0&showDate=1&showPrint=0&showTabs=1&showCalendars=1&mode=MONTH&{{ google_agenda.0.agenda_id }}&color=%234285F4&color=%238E24AA&color=%23D50000&color=%23F09300&color=%23616161&color=%23616161&color=%230B8043"
+                    style="border:solid 1px #777" width="1440" height="600" frameborder="0" scrolling="no"></iframe>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-3">
+        <div class="col-sm-6">
+            <p class="text-center text-primary">TRIPS</p>
+            {% include 'trips.html' %}
+        </div>
+        <div class="col-sm-6">
+            <p class="text-center text-primary">TO DO</p>
+            {% include 'todo.html' %}
+        </div>
+    </div>
+    <br>
+    <div class="row justify-content-center">
+        <div class="col-sm-6">
+            <p class="text-center text-primary">PROJECTS</p>
+            {% include 'projects.html' %}
+        </div>
+
+        <div class="col-sm-6">
+            <p class="text-center text-primary">TO BUY</p>
+            {% include 'tobuy.html' %}
+        </div>
+    </div>
+
+{% endblock content %}
+

@@ -1,0 +1,23 @@
+<div class="modal fade" id="create_item" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="create_item">Create new item</h5>
+            </div>
+            <div class="modal-body">
+                {{ form.non_field_errors }}
+                <form action="" method="post">
+
+                    {% csrf_token %}
+                    <table>
+                        {{ form.as_table }}
+                    </table>
+                    <button class="btn btn-outline-dark" type="submit">Save</button>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
