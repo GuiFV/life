@@ -33,7 +33,7 @@ def home(request):
 @login_required
 def profile(request):
     user = request.user
-    google_agenda = GoogleAgenda.objects.get(user=user)
+    google_agenda, created = GoogleAgenda.objects.get_or_create(user=user)
 
     if request.method == 'POST':
         google_agenda_form = GoogleAgendaForm(request.POST, instance=google_agenda)
