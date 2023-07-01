@@ -41,7 +41,7 @@ def profile(request):
         if google_agenda_form.is_valid() and user_form.is_valid():
             google_agenda_form.save()
             user_form.save()
-            return redirect('profile')
+            return redirect('home')
     else:
         google_agenda_form = GoogleAgendaForm(instance=google_agenda)
         user_form = UserUpdateForm(instance=user)
