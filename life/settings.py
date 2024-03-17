@@ -29,6 +29,17 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='', cast=Csv())
 
+
+# SSL config
+CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='*', cast=Csv())
+SECURE_SSL_REDIRECT = config('SECURE_SSL_REDIRECT', default=False, cast=bool)
+SESSION_COOKIE_SECURE = config('SESSION_COOKIE_SECURE', default=False, cast=bool)
+USE_X_FORWARDED_HOST = config('USE_X_FORWARDED_HOST', default=True)
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+X_FRAME_OPTIONS = 'ALLOWALL'
+CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE', default=False, cast=bool)
+
+
 # Email configuration
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -122,10 +133,13 @@ SITE_ID = 1
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+default_dburl = "sqlite:///" + os.path.join(BASE_DIR, "db.sqlite3")
 DATABASES = {
-    'default': config('DATABASE_URL', default=default_dburl, cast=dburl),
+    "default": config("DATABASE_URL", default=default_dburl, cast=dburl),
 }
+
+if config('DATABASE_URL', default=''):
+    DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
 
 
 # Password validation
