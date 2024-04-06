@@ -4,6 +4,8 @@ Django==5.0.3
 django-allauth==0.59.0
 django-extensions==3.2.1
 django-jazzmin==2.6.0
+django-recaptcha==4.0.0
+django-summernote==0.8.20.0
 gunicorn==20.1.0
 python-decouple==3.7
-wheel
+wheel==0.42.0

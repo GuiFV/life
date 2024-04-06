@@ -1,3 +1,6 @@
+from allauth.account.forms import SignupForm, ResetPasswordForm
+from django_recaptcha.fields import ReCaptchaField
+from django_recaptcha.widgets import ReCaptchaV2Invisible
 from django import forms
 from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.models import User
@@ -50,3 +53,11 @@ class UserUpdateForm(UserChangeForm):
     def __init__(self, *args, **kwargs):
         super(UserUpdateForm, self).__init__(*args, **kwargs)
         self.fields['password'].widget = forms.HiddenInput()
+
+
+class CustomSignupForm(SignupForm):
+    captcha = ReCaptchaField(widget=ReCaptchaV2Invisible)
+
+
+class CustomResetPasswordForm(ResetPasswordForm):
+    captcha = ReCaptchaField(widget=ReCaptchaV2Invisible)

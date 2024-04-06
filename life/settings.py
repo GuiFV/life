@@ -64,6 +64,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.staticfiles',
     'django_extensions',
+    'django_recaptcha',
+    'django_summernote',
     'life.core',
     'allauth',
     'allauth.account',
@@ -129,6 +131,49 @@ SITE_ID = 1
 #         }
 #     }
 # }
+
+
+SUMMERNOTE_THEME = 'bs4'
+
+# https://github.com/summernote/django-summernote#options
+# https://summernote.org/deep-dive/#custom-toolbar-popover
+# https://stackoverflow.com/questions/33615669/disable-image-upload-in-summernote
+SUMMERNOTE_CONFIG = {
+
+    'summernote': {
+
+        # Change editor size
+        'width': '100%',
+        'height': '600',
+
+        'toolbar': [
+            ['style', ['style']],
+            ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'fontsize', 'clear']],
+            ['fontname', ['fontname']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph', 'height']],
+            ['table', ['table']],
+            ['insert', ['link', 'picture', 'video', 'hr']],
+            ['view', ['undo', 'redo', 'fullscreen', 'codeview', 'help']],
+        ],
+    },
+
+    'disable_attachment': False,
+
+    'js': (
+        '/static/js/hideFileUpload.js',
+    ),
+
+}
+
+ACCOUNT_FORMS = {'signup': 'life.core.forms.CustomSignupForm',
+                 'reset_password': 'life.core.forms.CustomResetPasswordForm'}
+
+
+# django-recaptcha
+
+RECAPTCHA_PUBLIC_KEY = config('RECAPTCHA_PUBLIC_KEY', default='')
+RECAPTCHA_PRIVATE_KEY = config('RECAPTCHA_PRIVATE_KEY', default='')
 
 
 # Database

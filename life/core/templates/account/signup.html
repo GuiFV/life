@@ -11,10 +11,26 @@
 
             <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
                 {% csrf_token %}
-                {{ form.as_p }}
+                
+                {% for field in form %}
+                    {% if field.label != "Captcha" %}
+                        <p>
+                            {{ field.errors }}
+                            {{ field.label_tag }}
+                            {{ field }}
+                        </p>
+                    {% else %}
+                        {{ field.errors }}
+                        {{ field }}
+                    {% endif %}
+                {% endfor %}
+            
                 {% if redirect_field_value %}
                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
+            
+                {{ form.media }}
+            
                 <button class="btn btn-dark" type="submit">{% trans "Sign Up" %}</button>
             </form>
         </div>
