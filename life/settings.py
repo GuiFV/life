@@ -79,7 +79,6 @@ INSTALLED_APPS = [
     'django_extensions',
     'life.core',
     'django_recaptcha',
-    'django_summernote',
     'django_ckeditor_5',
     'allauth',
     'allauth.account',
