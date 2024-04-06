@@ -2,8 +2,8 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
-from life.core.forms import GoalForm, UserUpdateForm, GoogleAgendaForm
-from life.core.models import Goal, GoogleAgenda
+from life.core.forms import GoalForm, UserUpdateForm, GoogleAgendaForm, NotesForm
+from life.core.models import Goal, GoogleAgenda, Notes
 
 
 @login_required(login_url="/accounts/login/")
@@ -28,6 +28,50 @@ def home(request):
     }
 
     return render(request, 'index.html', context)
+
+
+# @login_required
+# def notes(request):
+#     user = request.user
+#     try:
+#         notes_instance = Notes.objects.get(user=user)
+#     except Notes.DoesNotExist:
+#         notes_instance = None
+#
+#     if request.method == "POST":
+#         form = NotesForm(request.POST, instance=notes_instance)
+#         if form.is_valid():
+#             notes_instance = form.save(commit=False)
+#             notes_instance.user = request.user
+#             notes_instance.save()
+#             return redirect('notes')
+#     else:
+#         form = NotesForm(instance=notes_instance)
+#
+#     return render(request, 'notes.html', {'form': form})
+
+
+@login_required
+def notes(request):
+    user = request.user
+    all_notes, created = Notes.objects.get_or_create(user=user)
+
+    if request.method == "POST":
+        print('note from db:', all_notes.my_notes)
+        print('note from form:', request.POST.get('my_notes'))
+        form = NotesForm(request.POST, instance=all_notes)
+        if form.is_valid():
+            to_save = form.save(commit=False)
+            to_save.user = request.user
+            to_save.save()
+            return redirect('notes')
+
+    else:
+        form = NotesForm(instance=all_notes)
+
+    context = {'form': form}
+
+    return render(request, 'notes.html', context)
 
 
 @login_required

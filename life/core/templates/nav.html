@@ -22,9 +22,11 @@
                 <span class="material-icons">add_circle_outline</span>
             </button>
 
+            <a class="btn btn-dark" href="{% url 'notes' %}">Notes</a>
+            
             <form action="{% url 'home' %}" method="post">
                 {% csrf_token %}
-                <button id="show-all-button" class="btn btn-outline-dark mx-2" type="button">Show Completed</button>
+                <button id="show-all-button" class="btn btn-outline-dark mx-2" type="button">Toggle Completed</button>
             </form>
 
         {% endif %}

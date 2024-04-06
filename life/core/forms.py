@@ -5,8 +5,19 @@ from django import forms
 from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from django_summernote.fields import SummernoteTextField
+from django_summernote.widgets import SummernoteWidget
 
-from .models import Goal, GoogleAgenda
+from .models import Goal, GoogleAgenda, Notes
+
+
+class NotesForm(forms.ModelForm):
+    my_notes = SummernoteTextField()
+
+    class Meta:
+        model = Notes
+        fields = ['my_notes']
+        widgets = {'my_notes': SummernoteWidget()}
 
 
 class GoalForm(forms.ModelForm):

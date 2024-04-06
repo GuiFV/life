@@ -61,3 +61,14 @@ class GoogleAgenda(models.Model):
 
     def __str__(self):
         return f"{self.user}'s Google agenda"
+
+
+class Notes(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    my_notes = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.user}'s Notes"
+
+    class Meta:
+        verbose_name_plural = 'Notes'

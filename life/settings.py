@@ -39,6 +39,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 X_FRAME_OPTIONS = 'ALLOWALL'
 CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE', default=False, cast=bool)
 
+INTERNAL_IPS = [config("INTERNAL_IP1"),]
 
 # Email configuration
 
@@ -52,6 +53,39 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 RECIPIENT_ADDRESS = config('RECIPIENT_ADDRESS')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 
+SUMMERNOTE_THEME = 'bs4'
+
+# https://github.com/summernote/django-summernote#options
+# https://summernote.org/deep-dive/#custom-toolbar-popover
+# https://stackoverflow.com/questions/33615669/disable-image-upload-in-summernote
+SUMMERNOTE_CONFIG = {
+
+    'summernote': {
+
+        # Change editor size
+        'width': '100%',
+        'height': '600',
+
+        'toolbar': [
+            ['style', ['style']],
+            ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'fontsize', 'clear']],
+            ['fontname', ['fontname']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph', 'height']],
+            ['table', ['table']],
+            ['insert', ['link', 'picture', 'video', 'hr']],
+            ['view', ['undo', 'redo', 'fullscreen', 'codeview', 'help']],
+        ],
+    },
+
+    'disable_attachment': False,
+
+    'js': (
+        '/static/js/hideFileUpload.js',
+    ),
+
+}
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -64,9 +98,9 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.staticfiles',
     'django_extensions',
+    'life.core',
     'django_recaptcha',
     'django_summernote',
-    'life.core',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -74,13 +108,13 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "allauth.account.middleware.AccountMiddleware",
 ]
 
@@ -132,39 +166,6 @@ SITE_ID = 1
 #     }
 # }
 
-
-SUMMERNOTE_THEME = 'bs4'
-
-# https://github.com/summernote/django-summernote#options
-# https://summernote.org/deep-dive/#custom-toolbar-popover
-# https://stackoverflow.com/questions/33615669/disable-image-upload-in-summernote
-SUMMERNOTE_CONFIG = {
-
-    'summernote': {
-
-        # Change editor size
-        'width': '100%',
-        'height': '600',
-
-        'toolbar': [
-            ['style', ['style']],
-            ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'fontsize', 'clear']],
-            ['fontname', ['fontname']],
-            ['color', ['color']],
-            ['para', ['ul', 'ol', 'paragraph', 'height']],
-            ['table', ['table']],
-            ['insert', ['link', 'picture', 'video', 'hr']],
-            ['view', ['undo', 'redo', 'fullscreen', 'codeview', 'help']],
-        ],
-    },
-
-    'disable_attachment': False,
-
-    'js': (
-        '/static/js/hideFileUpload.js',
-    ),
-
-}
 
 ACCOUNT_FORMS = {'signup': 'life.core.forms.CustomSignupForm',
                  'reset_password': 'life.core.forms.CustomResetPasswordForm'}
@@ -226,6 +227,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
