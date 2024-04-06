@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django_ckeditor_5.fields import CKEditor5Field
 
 from life.core import services
 
@@ -65,7 +66,7 @@ class GoogleAgenda(models.Model):
 
 class Notes(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    my_notes = models.TextField(null=True, blank=True)
+    my_notes = CKEditor5Field(null=True, blank=True)
 
     def __str__(self):
         return f"{self.user}'s Notes"

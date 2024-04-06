@@ -57,13 +57,9 @@ def notes(request):
     all_notes, created = Notes.objects.get_or_create(user=user)
 
     if request.method == "POST":
-        print('note from db:', all_notes.my_notes)
-        print('note from form:', request.POST.get('my_notes'))
         form = NotesForm(request.POST, instance=all_notes)
         if form.is_valid():
-            to_save = form.save(commit=False)
-            to_save.user = request.user
-            to_save.save()
+            form.save()
             return redirect('notes')
 
     else:

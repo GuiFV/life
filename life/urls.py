@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from life.core import views
 
 urlpatterns = [
-    path('summernote/', include('django_summernote.urls')),
+    # path('summernote/', include('django_summernote.urls')),
     path('profile/', views.profile, name='profile'),
     path('account/delete_account/', views.delete_account, name='delete_account'),
     path('edit_goal/<pk>', views.edit_goal, name='edit_goal'),
@@ -31,10 +31,6 @@ urlpatterns = [
     path('', views.home, name='home'),
 ]
 
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += [
+    path("ckeditor5/", include('django_ckeditor_5.urls'), name="ck_editor_5_upload_file"),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

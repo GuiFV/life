@@ -53,38 +53,17 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 RECIPIENT_ADDRESS = config('RECIPIENT_ADDRESS')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 
-SUMMERNOTE_THEME = 'bs4'
 
-# https://github.com/summernote/django-summernote#options
-# https://summernote.org/deep-dive/#custom-toolbar-popover
-# https://stackoverflow.com/questions/33615669/disable-image-upload-in-summernote
-SUMMERNOTE_CONFIG = {
-
-    'summernote': {
-
-        # Change editor size
-        'width': '100%',
-        'height': '600',
-
-        'toolbar': [
-            ['style', ['style']],
-            ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'fontsize', 'clear']],
-            ['fontname', ['fontname']],
-            ['color', ['color']],
-            ['para', ['ul', 'ol', 'paragraph', 'height']],
-            ['table', ['table']],
-            ['insert', ['link', 'picture', 'video', 'hr']],
-            ['view', ['undo', 'redo', 'fullscreen', 'codeview', 'help']],
-        ],
+CKEDITOR_5_CONFIGS = {
+    'default': {
+        'toolbar': ['heading', '|', 'outdent', 'indent', '|', 'bold', 'italic', 'link', 'underline', 'strikethrough',
+        'code','subscript', 'superscript', 'highlight', '|', 'codeBlock', 'sourceEditing', 'insertImage',
+                    'bulletedList', 'numberedList', 'todoList', '|',  'blockQuote', 'imageUpload', '|',
+                    'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'mediaEmbed', 'removeFormat',
+                    'insertTable',],
     },
-
-    'disable_attachment': False,
-
-    'js': (
-        '/static/js/hideFileUpload.js',
-    ),
-
 }
+
 
 # Application definition
 
@@ -101,6 +80,7 @@ INSTALLED_APPS = [
     'life.core',
     'django_recaptcha',
     'django_summernote',
+    'django_ckeditor_5',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',

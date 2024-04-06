@@ -5,19 +5,24 @@ from django import forms
 from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
-from django_summernote.fields import SummernoteTextField
-from django_summernote.widgets import SummernoteWidget
+from django_ckeditor_5.widgets import CKEditor5Widget
 
 from .models import Goal, GoogleAgenda, Notes
 
 
 class NotesForm(forms.ModelForm):
-    my_notes = SummernoteTextField()
-
     class Meta:
         model = Notes
-        fields = ['my_notes']
-        widgets = {'my_notes': SummernoteWidget()}
+        fields = ('my_notes',)
+        widgets = {
+            "my_notes": CKEditor5Widget(
+                attrs={"class": "django_ckeditor_5"},
+            )
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["my_notes"].required = False
 
 
 class GoalForm(forms.ModelForm):
