@@ -78,6 +78,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'life.core',
+    'life.gym',
     'django_recaptcha',
     'django_ckeditor_5',
     'allauth',

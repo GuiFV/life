@@ -28,6 +28,7 @@ urlpatterns = [
     path('delete_goal/<pk>', views.delete_goal, name='delete_goal'),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
+    path('gym/', include('life.gym.urls')),
     path('', views.home, name='home'),
 ]
 
