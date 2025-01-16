@@ -262,9 +262,11 @@ JAZZMIN_SETTINGS = {
     "user_avatar": None,
 
     # List of apps (and/or models) to base side menu ordering off of (does not need to contain all apps/models)
-    # "order_with_respect_to": [
-    #     "core.model_name1",
-    #     "core.model_name2",],
+    "order_with_respect_to": [
+        "gym.seriesexercise",
+        "gym.series",
+        "gym.exercise",
+    ],
 
     # Use modals instead of popups
     "related_modal_active": False,
