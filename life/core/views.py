@@ -13,10 +13,10 @@ def home(request):
     goals = Goal.objects.filter(user=user)
     form = GoalForm()
 
-    has_project_goals = goals.filter(type="Project").exists()
-    has_trip_goals = goals.filter(type="Trip").exists()
-    has_buy_goals = goals.filter(type="Buy").exists()
-    has_do_goals = goals.filter(type="Do").exists()
+    has_project_goals = goals.filter(type='pr').exists()
+    has_trip_goals = goals.filter(type='tr').exists()
+    has_buy_goals = goals.filter(type='by').exists()
+    has_do_goals = goals.filter(type='do').exists()
 
     if request.method == "POST":
         form = GoalForm(request.POST)
