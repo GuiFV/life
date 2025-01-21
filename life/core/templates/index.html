@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 
+    <br>
     <div class="row align-items-center">
         <div class="col-auto">
             <button type="button" class="btn btn-icon btn-sm bg-light-1" data-toggle="modal" data-target="#create_item">
@@ -31,24 +32,32 @@
 
     <div class="row justify-content-center mt-3">
         <div class="col-sm-6">
-            <p class="text-center text-primary">TRIPS</p>
-            {% include 'trips.html' %}
+            {% if has_trip_goals%}
+                <p class="text-center text-primary">TRIPS</p>
+                {% include 'trips.html' %}
+            {% endif %}
         </div>
         <div class="col-sm-6">
-            <p class="text-center text-primary">TO DO</p>
-            {% include 'todo.html' %}
+            {% if has_do_goals%}
+                <p class="text-center text-primary">TO DO</p>
+                {% include 'todo.html' %}
+            {% endif %}
         </div>
     </div>
     <br>
     <div class="row justify-content-center">
         <div class="col-sm-6">
-            <p class="text-center text-primary">PROJECTS</p>
-            {% include 'projects.html' %}
+            {% if has_project_goals%}
+                <p class="text-center text-primary">PROJECTS</p>
+                {% include 'projects.html' %}
+            {% endif %}
         </div>
 
         <div class="col-sm-6">
-            <p class="text-center text-primary">TO BUY</p>
-            {% include 'tobuy.html' %}
+            {% if has_buy_goals%}
+                <p class="text-center text-primary">TO BUY</p>
+                {% include 'tobuy.html' %}
+            {% endif %}
         </div>
     </div>
 

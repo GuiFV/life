@@ -13,6 +13,11 @@ def home(request):
     goals = Goal.objects.filter(user=user)
     form = GoalForm()
 
+    has_project_goals = goals.filter(type="Project").exists()
+    has_trip_goals = goals.filter(type="Trip").exists()
+    has_buy_goals = goals.filter(type="Buy").exists()
+    has_do_goals = goals.filter(type="Do").exists()
+
     if request.method == "POST":
         form = GoalForm(request.POST)
         if form.is_valid():
@@ -25,6 +30,10 @@ def home(request):
         'google_agenda': google_agenda,
         'form': form,
         'goals': goals,
+        'has_project_goals': has_project_goals,
+        'has_trip_goals': has_trip_goals,
+        'has_buy_goals': has_buy_goals,
+        'has_do_goals': has_do_goals,
     }
 
     return render(request, 'index.html', context)
