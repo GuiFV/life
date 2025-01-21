@@ -10,7 +10,7 @@
     </a>
 
     <div class="form-inline">
-        {% if user.is_authenticated and user.is_superuser %}
+        {% if user.is_authenticated and user.is_staff %}
             <a class="btn btn-icon btn-sm ml-2 bg-light-1" href="{% url 'admin:index' %}">
                 <span class="material-icons red">lock_open</span>
             </a>
