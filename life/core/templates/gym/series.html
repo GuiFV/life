@@ -7,7 +7,7 @@
 <div class="container">
   <div class="row justify-content-md-center">
     <div class="col col-md-6">
-      {% for serie in series %}
+      {% for program in training_programs %}
       <div class="mb-3"> <!-- Spacing between buttons -->
         <!-- Button to toggle collapse -->
         <button
@@ -17,13 +17,13 @@
             data-target="#collapse{{ forloop.counter }}"
             aria-expanded="false"
             aria-controls="collapse{{ forloop.counter }}">
-          {{ serie.name }}
+          {{ program.name }}
         </button>
 
         <!-- Collapsible content -->
         <div class="collapse" id="collapse{{ forloop.counter }}">
           <div class="card card-body mt-2">
-            {% for group, exercises in serie.grouped_exercises.items %}
+            {% for group, exercises in program.grouped_exercises.items %}
               <h5>{{ group|default_if_none:"Uncategorized" }}</h5> <!-- Group Title -->
               <ul class="list-unstyled">
                 {% for exercise in exercises %}
@@ -34,6 +34,7 @@
                   - {{ exercise.sets }} x
                   {{ exercise.repetitions_or_time }} {{ exercise.get_unit_display }}
                   {% if exercise.load %}- {{ exercise.load }} kg{% else %}{% endif %}
+                    {% if exercise.observation %} ({{ exercise.observation }}) {% endif %}
                 </li>
                 <!-- Modal for YouTube Video -->
                 <div class="modal fade" id="modal{{ exercise.id }}" tabindex="-1" aria-labelledby="modalLabel{{ exercise.id }}" aria-hidden="true">

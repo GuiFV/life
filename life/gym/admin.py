@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Series, Exercise, SeriesExercise
+from .models import TrainingProgram, Exercise, ProgramExercise
 
 
-@admin.register(Series)
+@admin.register(TrainingProgram)
 class SeriesAdmin(admin.ModelAdmin):
     list_display = ('get_user_full_name', 'name', 'active', 'created_at')
     search_fields = ('name', 'user__username')
@@ -20,7 +20,7 @@ class ExerciseAdmin(admin.ModelAdmin):
     search_fields = ('name', 'video_url')
 
 
-@admin.register(SeriesExercise)
+@admin.register(ProgramExercise)
 class SeriesExerciseAdmin(admin.ModelAdmin):
-    list_display = ('exercise', 'series', 'group', 'order', 'color', 'sets', 'repetitions_or_time', 'unit', 'load', 'created_at')
-    list_filter = ('series__user',)
+    list_display = ('exercise', 'program', 'group', 'order', 'color', 'sets', 'repetitions_or_time', 'unit', 'load', 'created_at')
+    list_filter = ('program__user',)
