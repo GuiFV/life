@@ -1,0 +1,64 @@
+
+ <div class="mb-3">
+        <!-- Button to toggle collapse -->
+        <button
+            class="btn btn-primary btn-block text-left"
+            type="button"
+            data-toggle="collapse"
+            data-target="#collapse{{ forloop.counter }}"
+            aria-expanded="false"
+            aria-controls="collapse{{ forloop.counter }}">
+          {{ program.name }}
+        </button>
+
+        <!-- Collapsible content -->
+        <div class="collapse" id="collapse{{ forloop.counter }}">
+          <div class="card card-body mt-2">
+            {% for group, exercises in program.grouped_exercises.items %}
+              <h5>{{ group|default_if_none:"Uncategorized" }}</h5> <!-- Group Title -->
+              <ul class="list-unstyled">
+                {% for exercise in exercises %}
+                <li style="background-color: {{ exercise.color }}; padding: 10px; margin-bottom: 5px; border-radius: 5px;">
+                  <a href="" data-toggle="modal" data-target="#modal{{ exercise.id }}">
+                    <strong>{{ exercise.exercise.name }}</strong>
+                  </a>
+                  - {{ exercise.sets }} x
+                  {{ exercise.repetitions_or_time }} {{ exercise.get_unit_display }}
+                  {% if exercise.load %}- {{ exercise.load }} kg{% else %}{% endif %}
+                    {% if exercise.observation %} ({{ exercise.observation }}) {% endif %}
+                </li>
+                <!-- Modal for YouTube Video -->
+                <div class="modal fade" id="modal{{ exercise.id }}" tabindex="-1" aria-labelledby="modalLabel{{ exercise.id }}" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel{{ exercise.id }}">{{ exercise.exercise.name }}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                       {% if exercise.exercise.video_url %}
+                         <div class="embed-responsive embed-responsive-16by9">
+                           <iframe
+                               class="embed-responsive-item"
+                               src="{{ exercise.exercise.embed_url|add:'?rel=0' }}"
+                               allowfullscreen></iframe>
+                         </div>
+                       {% else %}
+                         <p>No video available for this exercise.</p>
+                       {% endif %}
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End of Modal -->
+                {% endfor %}
+              </ul>
+            {% endfor %}
+          </div>
+        </div>
+      </div>

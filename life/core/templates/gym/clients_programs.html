@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <br><br>
+
+    <div class="container">
+        <div class="row justify-content-md-center">
+            {% for user, training_programs in users_training_programs.items %}
+                <div class="col col-md-6">
+                    <h5>{{ user.first_name }}'s Programs</h5>
+                    {% for program in training_programs %}
+                        {% include 'gym/program_card.html' %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Script to Reset Video in Modal -->
+    <script>
+        $(".modal").on("hidden.bs.modal", function () {
+            $(this).find("iframe").attr("src", $(this).find("iframe").attr("src"));
+        });
+    </script>
+
+{% endblock content %}

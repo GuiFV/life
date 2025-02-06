@@ -263,8 +263,8 @@ JAZZMIN_SETTINGS = {
 
     # List of apps (and/or models) to base side menu ordering off of (does not need to contain all apps/models)
     "order_with_respect_to": [
-        "gym.seriesexercise",
-        "gym.series",
+        "gym.programexercise",
+        "gym.trainingprogram",
         "gym.exercise",
     ],
 
