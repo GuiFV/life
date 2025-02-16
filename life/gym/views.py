@@ -8,7 +8,7 @@ from life.gym.models import TrainingProgram, ProgramExercise
 
 
 @login_required
-def series(request):
+def programs(request):
     user = request.user
     training_programs = TrainingProgram.objects.filter(
         user=user, active=True
