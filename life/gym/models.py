@@ -51,11 +51,12 @@ class ProgramExercise(models.Model):
         PINK = "#FFCCE5", _("Rosa")
 
     class GroupChoices(models.TextChoices):
+        RELEASE = "release", _("Liberação")
         STRETCHING = "stretching", _("Alongamento")
         MOBILITY = "mobility", _("Mobilidade")
-        ACTIVATION = "activation", _("Ativação")
         MOTOR_CONTROL = "motor_control", _("Controle Motor")
-        WARM_UP = "warm_up", _("Aquecimento")
+        STABILITY = "stability", _("Estabilidade")
+        POWER = "power", _("Potência")
         STRENGTH = "strength", _("Força")
 
     class UnitChoices(models.TextChoices):

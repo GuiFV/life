@@ -5,6 +5,7 @@ from django.shortcuts import render
 from itertools import groupby
 from operator import attrgetter
 from life.gym.models import TrainingProgram, ProgramExercise
+from life.gym.services import group_exercises_by_group
 
 
 @login_required
@@ -15,16 +16,7 @@ def programs(request):
     ).prefetch_related('programexercise_set__exercise')
 
     # Group exercises by 'group' in the view
-    for program in training_programs:
-        # Sort the exercises by 'group' and order them (necessary for groupby)
-        sorted_exercises = sorted(
-            program.programexercise_set.all(), key=lambda ex: (ex.group, ex.order)
-        )
-        # Group exercises by 'group', converting group to its verbose label
-        program.grouped_exercises = {
-            ProgramExercise.GroupChoices(group).label: list(exercises)
-            for group, exercises in groupby(sorted_exercises, key=attrgetter('group'))
-        }
+    group_exercises_by_group(training_programs)
 
     context = {'training_programs': training_programs}
     return render(request, 'gym/series.html', context)
@@ -45,14 +37,7 @@ def clients_programs(request):
         ).prefetch_related('programexercise_set__exercise')
 
         # Group exercises by 'group' for each program
-        for program in training_programs:
-            sorted_exercises = sorted(
-                program.programexercise_set.all(), key=lambda ex: (ex.group, ex.order)
-            )
-            program.grouped_exercises = {
-                ProgramExercise.GroupChoices(group).label: list(exercises)
-                for group, exercises in groupby(sorted_exercises, key=attrgetter('group'))
-            }
+        group_exercises_by_group(training_programs)
 
         # Add the user's programs to the dictionary
         users_training_programs[user] = training_programs

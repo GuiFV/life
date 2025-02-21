@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.db import models
 from .models import TrainingProgram, Exercise, ProgramExercise
 
 
@@ -24,6 +25,40 @@ class TrainingProgramAdmin(admin.ModelAdmin):
         return f"{obj.user.first_name} {obj.user.last_name}"
 
     get_user_full_name.short_description = 'Usuário'  # Label for the custom method
+
+    def save_related(self, request, form, formsets, change):
+        """
+        Override save_related to ensure ProgramExercises linked to a TrainingProgram
+        are saved in the desired order (by `group` and `order`).
+        """
+        super().save_related(request, form, formsets, change)
+
+        # Ensure `ProgramExercise` is ordered by `group` -> `order`
+        program = form.instance  # Get the TrainingProgram instance
+        group_order = [
+            ProgramExercise.GroupChoices.RELEASE,
+            ProgramExercise.GroupChoices.STRETCHING,
+            ProgramExercise.GroupChoices.MOBILITY,
+            ProgramExercise.GroupChoices.MOTOR_CONTROL,
+            ProgramExercise.GroupChoices.STABILITY,
+            ProgramExercise.GroupChoices.POWER,
+            ProgramExercise.GroupChoices.STRENGTH,
+        ]
+        program_exercises = ProgramExercise.objects.filter(program=program)
+
+        # Reorder according to `group_order` and save back to database
+        for index, exercise in enumerate(
+                program_exercises.order_by(
+                    models.Case(
+                        *(models.When(group=group, then=models.Value(i)) for i, group in enumerate(group_order)),
+                        default=models.Value(len(group_order)),
+                        output_field=models.IntegerField()
+                    ),
+                    'order'
+                )
+        ):
+            exercise.order = index + 1  # Optionally, reset the "order" field incrementally
+            exercise.save()
 
 
 @admin.register(Exercise)
