@@ -88,7 +88,7 @@ class ProgramExercise(models.Model):
     sets = models.PositiveIntegerField(verbose_name=_("Série"))
     repetitions_or_time = models.PositiveIntegerField(verbose_name=_("Qtd. (Repetições ou Tempo)"))
     unit = models.CharField(max_length=15, choices=UnitChoices.choices, verbose_name=_("Unidade"), default=UnitChoices.REPETITIONS)
-    load = models.PositiveIntegerField(verbose_name=_("Carga (Kg)"), blank=True, null=True)
+    load = models.DecimalField(max_digits=5, decimal_places=1, verbose_name=_("Carga (Kg)"), blank=True, null=True)
     observation = models.CharField(max_length=200, verbose_name=_("Observação"), blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Criado em"))
 
