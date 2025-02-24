@@ -25,11 +25,28 @@ class Exercise(models.Model):
     @property
     def embed_url(self):
         """
-           Converts video_url to YouTube embed format.
-           Example: https://www.youtube.com/watch?v=abc123 -> https://www.youtube.com/embed/abc123
-           """
-        if self.video_url and 'watch?v=' in self.video_url:
-            return self.video_url.replace('watch?v=', 'embed/')
+        Converts video_url to YouTube embed format.
+        Supports:
+        - https://youtube.com/watch?v=<video_id>
+        - https://youtube.com/shorts/<video_id>
+        - https://youtu.be/<video_id>
+        Converts to:
+        - https://www.youtube.com/embed/<video_id>
+        """
+        if self.video_url:
+            # Handle the standard YouTube watch URL
+            if "watch?v=" in self.video_url:
+                return self.video_url.replace("watch?v=", "embed/")
+
+            # Handle YouTube Shorts URLs
+            elif "youtube.com/shorts/" in self.video_url:
+                return self.video_url.replace("youtube.com/shorts/", "www.youtube.com/embed/")
+
+            # Handle shortened YouTube URLs
+            elif "youtu.be/" in self.video_url:
+                return self.video_url.replace("youtu.be/", "www.youtube.com/embed/")
+
+        # Default: return as-is, if no recognized pattern is found
         return self.video_url
 
     class Meta:
