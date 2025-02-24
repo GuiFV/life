@@ -3,15 +3,41 @@ from django.db import models
 from .models import TrainingProgram, Exercise, ProgramExercise
 
 
-class ProgramExerciseInline(admin.TabularInline):  # Inline for ProgramExercise
+class ProgramExerciseInline(admin.TabularInline):
+    """ Inline for ProgramExercise """
     model = ProgramExercise
-    extra = 0  # No extra empty fields
+    extra = 0
     fields = (
-    'exercise', 'group', 'order', 'color', 'sets', 'repetitions_or_time', 'unit', 'load')  # Display desired fields
-    readonly_fields = ('created_at',)  # Make fields like `created_at` readonly
-    ordering = ('group', 'order')  # Sort exercises by `group` and `order`
-    verbose_name = 'Program Exercise'
-    verbose_name_plural = 'Program Exercises'
+        'exercise', 'group', 'order', 'color', 'sets', 'repetitions_or_time', 'unit', 'load'
+    )
+    readonly_fields = ('created_at',)
+    # Default ordering inside the form
+    ordering = ('group', 'order')
+
+    def get_queryset(self, request):
+        # Enforce custom ordering based on the predefined GroupChoices order
+        qs = super().get_queryset(request)
+
+        group_order = [
+            ProgramExercise.GroupChoices.RELEASE,
+            ProgramExercise.GroupChoices.STRETCHING,
+            ProgramExercise.GroupChoices.MOBILITY,
+            ProgramExercise.GroupChoices.MOTOR_CONTROL,
+            ProgramExercise.GroupChoices.STABILITY,
+            ProgramExercise.GroupChoices.POWER,
+            ProgramExercise.GroupChoices.STRENGTH,
+        ]
+
+        # Apply custom ordering using Case and When on the queryset
+        return qs.order_by(
+            models.Case(
+                *(models.When(group=group, then=models.Value(i)) for i, group in enumerate(group_order)),
+                default=models.Value(len(group_order)),  # Fallback if a group is missing
+                output_field=models.IntegerField(),
+            ),
+            'order'  # Secondary ordering by order
+        )
+
 
 
 @admin.register(TrainingProgram)
