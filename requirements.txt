@@ -1,11 +1,11 @@
 dj-database-url==1.2.0
 dj-static==0.0.6
-Django==5.1.7
+Django==5.1.8
 django-allauth==0.59.0
 django-ckeditor-5==0.2.12
 django-extensions==3.2.3
 django-jazzmin==3.0.1
 django-recaptcha==4.0.0
-gunicorn==22.0.0
+gunicorn==23.0.0
 python-decouple==3.8
 wheel==0.42.0
