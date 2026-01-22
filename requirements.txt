@@ -8,4 +8,4 @@ django-jazzmin==3.0.1
 django-recaptcha==4.0.0
 gunicorn==23.0.0
 python-decouple==3.8
-wheel==0.42.0
+wheel==0.46.3
