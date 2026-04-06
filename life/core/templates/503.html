@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 
@@ -7,8 +8,8 @@
         <div class="col-md-8">
 
             <h1 class="mt-5">Error 503</h1>
-            <h3 class="ml-5 my-5">Service Unavailable</h3>
-            <h5 class="ml-5">An issue occurred with one or more services required to run the application.</h5>
+            <h3 class="ml-5 my-5">{% trans "Service Unavailable" %}</h3>
+            <h5 class="ml-5">{% trans "An issue occurred with one or more services required to run the application." %}</h5>
 
         </div>
     </div>

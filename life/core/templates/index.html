@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
     <br>
@@ -12,12 +13,12 @@
         <div class="col-auto">
             <form action="{% url 'home' %}" method="post" class="d-inline">
                 {% csrf_token %}
-                <button id="show-all-button" class="btn btn-sm btn-dark" type="button">Toggle 'Done'</button>
+                <button id="show-all-button" class="btn btn-sm btn-dark" type="button">{% trans "Toggle 'Done'" %}</button>
             </form>
         </div>
         <div class="col-auto">
             <a class="btn btn-sm btn-dark" data-toggle="collapse" href="#collapseAgenda" role="button" aria-expanded="false" aria-controls="collapseAgenda">
-                Agenda
+                {% trans "Agenda" %}
             </a>
         </div>
     </div>
@@ -33,13 +34,13 @@
     <div class="row justify-content-center mt-3">
         <div class="col-sm-6">
             {% if has_trip_goals%}
-                <p class="text-center text-primary">TRIPS</p>
+                <p class="text-center text-primary">{% trans "TRIPS" %}</p>
                 {% include 'trips.html' %}
             {% endif %}
         </div>
         <div class="col-sm-6">
             {% if has_do_goals%}
-                <p class="text-center text-primary">TO DO</p>
+                <p class="text-center text-primary">{% trans "TO DO" %}</p>
                 {% include 'todo.html' %}
             {% endif %}
         </div>
@@ -48,18 +49,17 @@
     <div class="row justify-content-center">
         <div class="col-sm-6">
             {% if has_project_goals%}
-                <p class="text-center text-primary">PROJECTS</p>
+                <p class="text-center text-primary">{% trans "PROJECTS" %}</p>
                 {% include 'projects.html' %}
             {% endif %}
         </div>
 
         <div class="col-sm-6">
             {% if has_buy_goals%}
-                <p class="text-center text-primary">TO BUY</p>
+                <p class="text-center text-primary">{% trans "TO BUY" %}</p>
                 {% include 'tobuy.html' %}
             {% endif %}
         </div>
     </div>
 
 {% endblock content %}
-

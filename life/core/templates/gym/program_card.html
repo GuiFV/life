@@ -1,5 +1,5 @@
-
- <div class="mb-3">
+{% load i18n %}
+<div class="mb-3">
         <!-- Button to toggle collapse -->
         <button
             class="btn btn-primary btn-block text-left"
@@ -15,7 +15,7 @@
         <div class="collapse" id="collapse{{ forloop.counter }}">
           <div class="card card-body mt-2">
             {% for group, exercises in program.grouped_exercises.items %}
-              <h5>{{ group|default_if_none:"Uncategorized" }}</h5> <!-- Group Title -->
+              <h5>{{ group|default_if_none:_("Uncategorized") }}</h5>
               <ul class="list-unstyled">
                 {% for exercise in exercises %}
                 <li style="background-color: {{ exercise.color }}; padding: 10px; margin-bottom: 5px; border-radius: 5px;">
@@ -47,11 +47,11 @@
                                allowfullscreen></iframe>
                          </div>
                        {% else %}
-                         <p>No video available for this exercise.</p>
+                         <p>{% trans "No video available for this exercise." %}</p>
                        {% endif %}
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans "Close" %}</button>
                       </div>
                     </div>
                   </div>

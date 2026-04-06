@@ -7,16 +7,16 @@
     <div class="row justify-content-center mt-4">
         <div class="col-8 text-center">
 
-            <h4>Are you sure you want to delete your account?</h4>
+            <h4>{% trans "Are you sure you want to delete your account?" %}</h4>
             <br>
-            <p>All data points connections to and from your data points will be lost</p>
-            <p>You will lose all your data with us</p>
-            <p>This action is irreversible!</p>
+            <p>{% trans "All data points connections to and from your data points will be lost" %}</p>
+            <p>{% trans "You will lose all your data with us" %}</p>
+            <p>{% trans "This action is irreversible!" %}</p>
 
             <form method="post">
                 {% csrf_token %}
 
-                <button class="btn btn-outline-danger" type="submit">Yes, delete everything</button>
+                <button class="btn btn-outline-danger" type="submit">{% trans "Yes, delete everything" %}</button>
             </form>
         </div>
     </div>

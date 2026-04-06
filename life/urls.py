@@ -17,9 +17,12 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
+from django.conf.urls.i18n import i18n_patterns
 from life.core import views
 
 urlpatterns = [
+    path('i18n/', include('django.conf.urls.i18n')),
+
     # path('summernote/', include('django_summernote.urls')),
     path('profile/', views.profile, name='profile'),
     path('account/delete_account/', views.delete_account, name='delete_account'),

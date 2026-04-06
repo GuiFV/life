@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 
@@ -7,8 +8,8 @@
         <div class="col-md-8">
 
             <h1 class="mt-5">Error 401</h1>
-            <h3 class="ml-5 my-5">Authentication required</h3>
-            <h5 class="ml-5">Please verify your login credentials.</h5>
+            <h3 class="ml-5 my-5">{% trans "Authentication required" %}</h3>
+            <h5 class="ml-5">{% trans "Please verify your login credentials." %}</h5>
 
         </div>
     </div>

@@ -1,0 +1,924 @@
+# Brazilian Portuguese translations for Life project.
+# Copyright (C) 2026
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: life\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-06 08:06+0000\n"
+"PO-Revision-Date: 2026-04-06 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Portuguese (Brazil)\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: life/core/templates/400.html:11
+msgid "Bad request"
+msgstr "Solicitação inválida"
+
+#: life/core/templates/400.html:12
+msgid "The performed request is invalid."
+msgstr "A solicitação realizada é inválida."
+
+#: life/core/templates/401.html:11
+msgid "Authentication required"
+msgstr "Autenticação necessária"
+
+#: life/core/templates/401.html:12
+msgid "Please verify your login credentials."
+msgstr "Por favor, verifique suas credenciais de login."
+
+#: life/core/templates/403.html:11
+msgid "Not Authorized"
+msgstr "Não autorizado"
+
+#: life/core/templates/403.html:12
+msgid "You don't have permission to view this page."
+msgstr "Você não tem permissão para visualizar esta página."
+
+#: life/core/templates/404.html:11
+msgid "Page Not Found"
+msgstr "Página não encontrada"
+
+#: life/core/templates/404.html:12
+msgid ""
+"The page you tried to access does not exist. Please check the typed URL or "
+"used link."
+msgstr ""
+"A página que você tentou acessar não existe. Por favor, verifique a URL "
+"digitada ou o link utilizado."
+
+#: life/core/templates/500.html:11
+msgid "Internal server error"
+msgstr "Erro interno do servidor"
+
+#: life/core/templates/500.html:12 life/core/templates/502.html:13
+msgid "Please try again or contact your system administrator"
+msgstr ""
+"Por favor, tente novamente ou entre em contato com o administrador do sistema"
+
+#: life/core/templates/502.html:11
+msgid "Service temporarily overloaded"
+msgstr "Serviço temporariamente sobrecarregado"
+
+#: life/core/templates/502.html:12
+msgid ""
+"The server encountered a temporary error and could not complete your request"
+msgstr ""
+"O servidor encontrou um erro temporário e não pôde concluir sua solicitação"
+
+#: life/core/templates/503.html:11
+msgid "Service Unavailable"
+msgstr "Serviço indisponível"
+
+#: life/core/templates/503.html:12
+msgid ""
+"An issue occurred with one or more services required to run the application."
+msgstr ""
+"Ocorreu um problema com um ou mais serviços necessários para executar a "
+"aplicação."
+
+#: life/core/templates/account/account_inactive.html:7
+msgid "Account Inactive"
+msgstr "Conta inativa"
+
+#: life/core/templates/account/account_inactive.html:9
+msgid "This account is inactive."
+msgstr "Esta conta está inativa."
+
+#: life/core/templates/account/delete_account.html:10
+msgid "Are you sure you want to delete your account?"
+msgstr "Tem certeza que deseja excluir sua conta?"
+
+#: life/core/templates/account/delete_account.html:12
+msgid "All data points connections to and from your data points will be lost"
+msgstr "Todas as conexões com seus dados serão perdidas"
+
+#: life/core/templates/account/delete_account.html:13
+msgid "You will lose all your data with us"
+msgstr "Você perderá todos os seus dados conosco"
+
+#: life/core/templates/account/delete_account.html:14
+msgid "This action is irreversible!"
+msgstr "Esta ação é irreversível!"
+
+#: life/core/templates/account/delete_account.html:19
+msgid "Yes, delete everything"
+msgstr "Sim, excluir tudo"
+
+#: life/core/templates/account/email.html:7
+msgid "E-mail Addresses"
+msgstr "Endereços de e-mail"
+
+#: life/core/templates/account/email.html:9
+msgid "The following e-mail addresses are associated with your account:"
+msgstr "Os seguintes endereços de e-mail estão associados à sua conta:"
+
+#: life/core/templates/account/email.html:23
+msgid "Verified"
+msgstr "Verificado"
+
+#: life/core/templates/account/email.html:25
+msgid "Unverified"
+msgstr "Não verificado"
+
+#: life/core/templates/account/email.html:27
+msgid "Primary"
+msgstr "Principal"
+
+#: life/core/templates/account/email.html:33
+msgid "Make Primary"
+msgstr "Tornar principal"
+
+#: life/core/templates/account/email.html:34
+msgid "Re-send Verification"
+msgstr "Reenviar verificação"
+
+#: life/core/templates/account/email.html:35
+#: life/core/templates/socialaccount/connections.html:34
+msgid "Remove"
+msgstr "Remover"
+
+#: life/core/templates/account/email.html:42
+msgid "Warning:"
+msgstr "Aviso:"
+
+#: life/core/templates/account/email.html:42
+msgid ""
+"You currently do not have any e-mail address set up. You should really add "
+"an e-mail address so you can receive notifications, reset your password, etc."
+msgstr ""
+"Você não tem nenhum endereço de e-mail configurado. É recomendado adicionar "
+"um e-mail para receber notificações, redefinir sua senha, etc."
+
+#: life/core/templates/account/email.html:47
+msgid "Add E-mail Address"
+msgstr "Adicionar endereço de e-mail"
+
+#: life/core/templates/account/email.html:52
+msgid "Add E-mail"
+msgstr "Adicionar e-mail"
+
+#: life/core/templates/account/email.html:63
+msgid "Do you really want to remove the selected e-mail address?"
+msgstr "Tem certeza que deseja remover o endereço de e-mail selecionado?"
+
+#: life/core/templates/account/email/base_message.txt:1
+#, python-format
+msgid "Hello from %(site_name)s!"
+msgstr "Olá de %(site_name)s!"
+
+#: life/core/templates/account/email/base_message.txt:5
+#, python-format
+msgid ""
+"Thank you for using %(site_name)s!\n"
+"%(site_domain)s"
+msgstr ""
+"Obrigado por usar %(site_name)s!\n"
+"%(site_domain)s"
+
+#: life/core/templates/account/email/email_confirmation_message.txt:5
+#, python-format
+msgid ""
+"You're receiving this e-mail because user %(user_display)s has given your e-"
+"mail address to register an account on %(site_domain)s.\n"
+"\n"
+"To confirm this is correct, go to %(activate_url)s"
+msgstr ""
+"Você está recebendo este e-mail porque o usuário %(user_display)s forneceu "
+"seu endereço de e-mail para registrar uma conta em %(site_domain)s.\n"
+"\n"
+"Para confirmar, acesse %(activate_url)s"
+
+#: life/core/templates/account/email/email_confirmation_subject.txt:3
+msgid "Please Confirm Your E-mail Address"
+msgstr "Por favor, confirme seu endereço de e-mail"
+
+#: life/core/templates/account/email/password_reset_key_message.txt:4
+msgid ""
+"You're receiving this e-mail because you or someone else has requested a "
+"password for your user account.\n"
+"It can be safely ignored if you did not request a password reset. Click the "
+"link below to reset your password."
+msgstr ""
+"Você está recebendo este e-mail porque você ou outra pessoa solicitou uma "
+"redefinição de senha para sua conta.\n"
+"Pode ignorar este e-mail se não solicitou. Clique no link abaixo para "
+"redefinir sua senha."
+
+#: life/core/templates/account/email/password_reset_key_message.txt:9
+#, python-format
+msgid "In case you forgot, your username is %(username)s."
+msgstr "Caso tenha esquecido, seu nome de usuário é %(username)s."
+
+#: life/core/templates/account/email/password_reset_key_subject.txt:3
+#: life/core/templates/account/email/unknown_account_subject.txt:3
+msgid "Password Reset E-mail"
+msgstr "E-mail de redefinição de senha"
+
+#: life/core/templates/account/email/unknown_account_message.txt:4
+#, python-format
+msgid ""
+"You are receiving this e-mail because you or someone else has requested a\n"
+"password for your user account. However, we do not have any record of a "
+"user\n"
+"with email %(email)s in our database.\n"
+"\n"
+"This mail can be safely ignored if you did not request a password reset.\n"
+"\n"
+"If it was you, you can sign up for an account using the link below."
+msgstr ""
+"Você está recebendo este e-mail porque você ou outra pessoa solicitou uma\n"
+"redefinição de senha para sua conta. No entanto, não há registro de um "
+"usuário\n"
+"com o e-mail %(email)s em nossa base de dados.\n"
+"\n"
+"Pode ignorar este e-mail se não fez nenhuma solicitação.\n"
+"\n"
+"Se foi você, pode criar uma conta usando o link abaixo."
+
+#: life/core/templates/account/email_confirm.html:8
+msgid "Confirm E-mail Address"
+msgstr "Confirmar endereço de e-mail"
+
+#: life/core/templates/account/email_confirm.html:14
+#, python-format
+msgid ""
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"address for user %(user_display)s."
+msgstr ""
+"Por favor, confirme que <a href=\"mailto:%(email)s\">%(email)s</a> é um "
+"endereço de e-mail do usuário %(user_display)s."
+
+#: life/core/templates/account/email_confirm.html:18
+msgid "Confirm"
+msgstr "Confirmar"
+
+#: life/core/templates/account/email_confirm.html:25
+#, python-format
+msgid ""
+"This e-mail confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+msgstr ""
+"Este link de confirmação de e-mail expirou ou é inválido. Por favor, <a "
+"href=\"%(email_url)s\">solicite uma nova confirmação de e-mail</a>."
+
+#: life/core/templates/account/login.html:11
+msgid "Organize your life"
+msgstr "Organize sua vida"
+
+#: life/core/templates/account/login.html:16
+msgid "Register here"
+msgstr "Registre-se aqui"
+
+#: life/core/templates/account/login.html:28
+msgid "or"
+msgstr "ou"
+
+#: life/core/templates/account/login.html:50
+msgid "Sign In"
+msgstr "Entrar"
+
+#: life/core/templates/account/login.html:52
+msgid "Forgot my password"
+msgstr "Esqueci minha senha"
+
+#: life/core/templates/account/logout.html:10
+#: life/core/templates/account/logout.html:19 life/core/templates/nav.html:33
+msgid "Logout"
+msgstr "Sair"
+
+#: life/core/templates/account/logout.html:12
+msgid "Are you sure you want to logout?"
+msgstr "Tem certeza que deseja sair?"
+
+#: life/core/templates/account/messages/cannot_delete_primary_email.txt:2
+#, python-format
+msgid "You cannot remove your primary e-mail address (%(email)s)."
+msgstr "Você não pode remover seu endereço de e-mail principal (%(email)s)."
+
+#: life/core/templates/account/messages/email_confirmation_sent.txt:2
+#, python-format
+msgid "Confirmation e-mail sent to %(email)s."
+msgstr "E-mail de confirmação enviado para %(email)s."
+
+#: life/core/templates/account/messages/email_confirmed.txt:2
+#, python-format
+msgid "You have confirmed %(email)s."
+msgstr "Você confirmou %(email)s."
+
+#: life/core/templates/account/messages/email_deleted.txt:2
+#, python-format
+msgid "Removed e-mail address %(email)s."
+msgstr "Endereço de e-mail %(email)s removido."
+
+#: life/core/templates/account/messages/logged_in.txt:4
+#, python-format
+msgid "Successfully signed in as %(name)s."
+msgstr "Login realizado com sucesso como %(name)s."
+
+#: life/core/templates/account/messages/logged_out.txt:2
+msgid "You have signed out."
+msgstr "Você saiu da conta."
+
+#: life/core/templates/account/messages/password_changed.txt:2
+msgid "Password successfully changed."
+msgstr "Senha alterada com sucesso."
+
+#: life/core/templates/account/messages/password_set.txt:2
+msgid "Password successfully set."
+msgstr "Senha definida com sucesso."
+
+#: life/core/templates/account/messages/primary_email_set.txt:2
+msgid "Primary e-mail address set."
+msgstr "Endereço de e-mail principal definido."
+
+#: life/core/templates/account/messages/unverified_primary_email.txt:2
+msgid "Your primary e-mail address must be verified."
+msgstr "Seu endereço de e-mail principal deve ser verificado."
+
+#: life/core/templates/account/password_change.html:7
+#: life/core/templates/account/password_change.html:12
+#: life/core/templates/account/password_reset_from_key.html:7
+#: life/core/templates/account/password_reset_from_key_done.html:7
+msgid "Change Password"
+msgstr "Alterar senha"
+
+#: life/core/templates/account/password_change.html:13
+msgid "Forgot Password?"
+msgstr "Esqueceu a senha?"
+
+#: life/core/templates/account/password_reset.html:8
+#: life/core/templates/account/password_reset_done.html:8
+msgid "Password Reset"
+msgstr "Redefinição de senha"
+
+#: life/core/templates/account/password_reset.html:13
+msgid ""
+"Forgotten your password? Enter your e-mail address below, and we'll send you "
+"an e-mail allowing you to reset it."
+msgstr ""
+"Esqueceu sua senha? Informe seu endereço de e-mail abaixo e enviaremos um e-"
+"mail para você redefini-la."
+
+#: life/core/templates/account/password_reset.html:18
+msgid "Reset My Password"
+msgstr "Redefinir minha senha"
+
+#: life/core/templates/account/password_reset.html:21
+msgid "Please contact us if you have any trouble resetting your password."
+msgstr "Entre em contato conosco se tiver problemas para redefinir sua senha."
+
+#: life/core/templates/account/password_reset_done.html:14
+msgid ""
+"We have sent you an e-mail. If you have not received it please check your "
+"spam folder. Otherwise contact us if you do not receive it in a few minutes."
+msgstr ""
+"Enviamos um e-mail para você. Se não o recebeu, verifique sua pasta de spam. "
+"Caso contrário, entre em contato conosco se não receber em alguns minutos."
+
+#: life/core/templates/account/password_reset_from_key.html:7
+msgid "Bad Token"
+msgstr "Token inválido"
+
+#: life/core/templates/account/password_reset_from_key.html:11
+#, python-format
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
+msgstr ""
+"O link de redefinição de senha é inválido, possivelmente porque já foi "
+"utilizado. Por favor, solicite uma <a href=\"%(passwd_reset_url)s\">nova "
+"redefinição de senha</a>."
+
+#: life/core/templates/account/password_reset_from_key.html:16
+msgid "change password"
+msgstr "alterar senha"
+
+#: life/core/templates/account/password_reset_from_key_done.html:8
+msgid "Your password is now changed."
+msgstr "Sua senha foi alterada."
+
+#: life/core/templates/account/password_set.html:7
+#: life/core/templates/account/password_set.html:12
+msgid "Set Password"
+msgstr "Definir senha"
+
+#: life/core/templates/account/signup.html:8
+#: life/core/templates/account/signup.html:34
+#: life/core/templates/socialaccount/signup.html:7
+#: life/core/templates/socialaccount/signup.html:18
+msgid "Sign Up"
+msgstr "Registrar-se"
+
+#: life/core/templates/account/signup.html:10
+#, python-format
+msgid ""
+"Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
+msgstr "Já tem uma conta? Então <a href=\"%(login_url)s\">entre aqui</a>."
+
+#: life/core/templates/account/signup_closed.html:7
+msgid "Sign Up Closed"
+msgstr "Cadastro encerrado"
+
+#: life/core/templates/account/signup_closed.html:9
+msgid "We are sorry, but the sign up is currently closed."
+msgstr "Lamentamos, mas o cadastro está temporariamente encerrado."
+
+#: life/core/templates/account/snippets/already_logged_in.html:5
+msgid "Note"
+msgstr "Nota"
+
+#: life/core/templates/account/snippets/already_logged_in.html:5
+#, python-format
+msgid "you are already logged in as %(user_display)s."
+msgstr "você já está conectado como %(user_display)s."
+
+#: life/core/templates/account/verification_sent.html:7
+#: life/core/templates/account/verified_email_required.html:7
+msgid "Verify Your E-mail Address"
+msgstr "Verifique seu endereço de e-mail"
+
+#: life/core/templates/account/verification_sent.html:9
+msgid ""
+"We have sent an e-mail to you for verification. Follow the link provided to "
+"finalize the signup process. If you do not see the verification e-mail in "
+"your main inbox, check your spam folder. Please contact us if you do not "
+"receive the verification e-mail within a few minutes."
+msgstr ""
+"Enviamos um e-mail para verificação. Siga o link fornecido para finalizar o "
+"processo de cadastro. Se não encontrar o e-mail na caixa de entrada, "
+"verifique a pasta de spam. Entre em contato conosco se não receber o e-mail "
+"de verificação em alguns minutos."
+
+#: life/core/templates/account/verified_email_required.html:11
+msgid ""
+"This part of the site requires us to verify that\n"
+"                you are who you claim to be. For this purpose, we require "
+"that you\n"
+"                verify ownership of your e-mail address. "
+msgstr ""
+"Esta parte do site requer verificação de identidade. Para isso, precisamos "
+"que você confirme a propriedade do seu endereço de e-mail. "
+
+#: life/core/templates/account/verified_email_required.html:15
+msgid ""
+"We have sent an e-mail to you for\n"
+"                verification. Please click on the link inside that e-mail. "
+"If you do not see the verification e-mail in your main inbox, check your "
+"spam folder. Otherwise\n"
+"                contact us if you do not receive it within a few minutes."
+msgstr ""
+"Enviamos um e-mail para verificação. Clique no link contido no e-mail. Se "
+"não encontrar o e-mail na caixa de entrada, verifique a pasta de spam. Caso "
+"contrário, entre em contato conosco se não receber em alguns minutos."
+
+#: life/core/templates/account/verified_email_required.html:19
+#, python-format
+msgid ""
+"<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your e-"
+"mail address</a>."
+msgstr ""
+"<strong>Observação:</strong> você ainda pode <a "
+"href=\"%(email_url)s\">alterar seu endereço de e-mail</a>."
+
+#: life/core/templates/create_item_modal.html:6
+msgid "Create new item"
+msgstr "Criar novo item"
+
+#: life/core/templates/create_item_modal.html:16
+#: life/core/templates/edit_goal.html:19 life/core/templates/notes.html:11
+#: life/core/templates/notes.html:21
+msgid "Save"
+msgstr "Salvar"
+
+#: life/core/templates/edit_goal.html:9
+#, python-format
+msgid "Editing \"%(name)s\""
+msgstr "Editando \"%(name)s\""
+
+#: life/core/templates/edit_goal.html:22
+msgid "Delete"
+msgstr "Excluir"
+
+#: life/core/templates/gym/clients_programs.html:12
+#, python-format
+msgid "%(first_name)s's Programs"
+msgstr "Programas de %(first_name)s"
+
+#: life/core/templates/gym/program_card.html:18
+msgid "Uncategorized"
+msgstr "Sem categoria"
+
+#: life/core/templates/gym/program_card.html:50
+msgid "No video available for this exercise."
+msgstr "Nenhum vídeo disponível para este exercício."
+
+#: life/core/templates/gym/program_card.html:54
+msgid "Close"
+msgstr "Fechar"
+
+#: life/core/templates/index.html:16
+msgid "Toggle 'Done'"
+msgstr "Alternar 'Concluído'"
+
+#: life/core/templates/index.html:21
+msgid "Agenda"
+msgstr "Agenda"
+
+#: life/core/templates/index.html:37
+msgid "TRIPS"
+msgstr "VIAGENS"
+
+#: life/core/templates/index.html:43
+msgid "TO DO"
+msgstr "A FAZER"
+
+#: life/core/templates/index.html:52
+msgid "PROJECTS"
+msgstr "PROJETOS"
+
+#: life/core/templates/index.html:59
+msgid "TO BUY"
+msgstr "COMPRAR"
+
+#: life/core/templates/nav.html:18
+msgid "Clients"
+msgstr "Clientes"
+
+#: life/core/templates/nav.html:23
+msgid "Gym"
+msgstr "Academia"
+
+#: life/core/templates/nav.html:24
+msgid "Notes"
+msgstr "Notas"
+
+#: life/core/templates/nav.html:29
+msgid "Login / Register"
+msgstr "Entrar / Registrar"
+
+#: life/core/templates/nav.html:32
+msgid "Profile"
+msgstr "Perfil"
+
+#: life/core/templates/projects.html:8
+msgid "Type"
+msgstr "Tipo"
+
+#: life/core/templates/projects.html:9 life/core/templates/tobuy.html:9
+#: life/core/templates/todo.html:9 life/core/templates/trips.html:8
+msgid "Name"
+msgstr "Nome"
+
+#: life/core/templates/projects.html:10 life/core/templates/tobuy.html:10
+#: life/core/templates/todo.html:10 life/core/templates/trips.html:9
+msgid "Cost"
+msgstr "Custo"
+
+#: life/core/templates/projects.html:11 life/core/templates/tobuy.html:11
+#: life/core/templates/todo.html:11 life/core/templates/trips.html:10
+msgid "Date"
+msgstr "Data"
+
+#: life/core/templates/socialaccount/authentication_error.html:7
+msgid "Social Network Login Failure"
+msgstr "Falha no login via rede social"
+
+#: life/core/templates/socialaccount/authentication_error.html:9
+msgid ""
+"An error occurred while attempting to login via your social network account."
+msgstr "Ocorreu um erro ao tentar entrar com sua conta de rede social."
+
+#: life/core/templates/socialaccount/connections.html:7
+msgid "Account Connections"
+msgstr "Conexões de conta"
+
+#: life/core/templates/socialaccount/connections.html:10
+msgid ""
+"You can sign in to your account using any of the following third party "
+"accounts:"
+msgstr ""
+"Você pode entrar na sua conta usando qualquer uma das seguintes contas de "
+"terceiros:"
+
+#: life/core/templates/socialaccount/connections.html:42
+msgid ""
+"You currently have no social network accounts connected to this account."
+msgstr "Você não tem nenhuma conta de rede social conectada a esta conta."
+
+#: life/core/templates/socialaccount/connections.html:45
+msgid "Add a 3rd Party Account"
+msgstr "Adicionar conta de terceiros"
+
+#: life/core/templates/socialaccount/login.html:11
+#, python-format
+msgid "Connect %(provider)s"
+msgstr "Conectar %(provider)s"
+
+#: life/core/templates/socialaccount/login.html:13
+#, python-format
+msgid "You are about to connect a new third party account from %(provider)s."
+msgstr ""
+"Você está prestes a conectar uma nova conta de terceiros de %(provider)s."
+
+#: life/core/templates/socialaccount/login.html:15
+#, python-format
+msgid "Sign In Via %(provider)s"
+msgstr "Entrar via %(provider)s"
+
+#: life/core/templates/socialaccount/login.html:17
+#, python-format
+msgid "You are about to sign in using a third party account from %(provider)s."
+msgstr ""
+"Você está prestes a entrar usando uma conta de terceiros de %(provider)s."
+
+#: life/core/templates/socialaccount/login.html:22
+msgid "Continue"
+msgstr "Continuar"
+
+#: life/core/templates/socialaccount/login_cancelled.html:7
+msgid "Login Cancelled"
+msgstr "Login cancelado"
+
+#: life/core/templates/socialaccount/login_cancelled.html:11
+#, python-format
+msgid ""
+"You decided to cancel logging in to our site using one of your existing "
+"accounts. If this was a mistake, please proceed to <a "
+"href=\"%(login_url)s\">sign in</a>."
+msgstr ""
+"Você cancelou o login no nosso site usando uma de suas contas existentes. Se "
+"foi um engano, por favor <a href=\"%(login_url)s\">entre aqui</a>."
+
+#: life/core/templates/socialaccount/messages/account_connected.txt:2
+msgid "The social account has been connected."
+msgstr "A conta de rede social foi conectada."
+
+#: life/core/templates/socialaccount/messages/account_connected_other.txt:2
+msgid "The social account is already connected to a different account."
+msgstr "A conta de rede social já está conectada a outra conta."
+
+#: life/core/templates/socialaccount/messages/account_disconnected.txt:2
+msgid "The social account has been disconnected."
+msgstr "A conta de rede social foi desconectada."
+
+#: life/core/templates/socialaccount/signup.html:9
+#, python-format
+msgid ""
+"You are about to use your %(provider_name)s account to login to\n"
+"                %(site_name)s. As a final step, please complete the "
+"following form:"
+msgstr ""
+"Você está prestes a usar sua conta %(provider_name)s para entrar em\n"
+"                %(site_name)s. Como etapa final, preencha o formulário "
+"abaixo:"
+
+#: life/core/templates/tobuy.html:8 life/core/templates/todo.html:8
+msgid "Effort"
+msgstr "Esforço"
+
+#: life/core/templates/user/profile.html:13
+msgid "Update"
+msgstr "Atualizar"
+
+#: life/core/templates/user/profile.html:24
+msgid "Change password"
+msgstr "Alterar senha"
+
+#: life/core/templates/user/profile.html:25
+msgid "Change email"
+msgstr "Alterar e-mail"
+
+#: life/core/templates/user/profile.html:26
+msgid "Delete account"
+msgstr "Excluir conta"
+
+#: life/gym/models.py:7
+msgid "User"
+msgstr "Usuário"
+
+#: life/gym/models.py:8
+msgid "Programme name"
+msgstr "Nome do programa"
+
+#: life/gym/models.py:9
+msgid "Active"
+msgstr "Ativo"
+
+#: life/gym/models.py:10 life/gym/models.py:96
+msgid "Created at"
+msgstr "Criado em"
+
+#: life/gym/models.py:13
+msgid "User programme"
+msgstr "Programa do usuário"
+
+#: life/gym/models.py:14
+msgid "User programmes"
+msgstr "Programas do usuário"
+
+#: life/gym/models.py:22
+msgid "Exercise name"
+msgstr "Nome do Exercício"
+
+#: life/gym/models.py:23
+msgid "Video URL"
+msgstr "URL do Vídeo"
+
+#: life/gym/models.py:56 life/gym/models.py:87
+msgid "Exercise"
+msgstr "Exercício"
+
+#: life/gym/models.py:57
+msgid "Exercises"
+msgstr "Exercícios"
+
+#: life/gym/models.py:66
+msgid "Red"
+msgstr "Vermelho"
+
+#: life/gym/models.py:67
+msgid "Green"
+msgstr "Verde"
+
+#: life/gym/models.py:68
+msgid "Blue"
+msgstr "Azul"
+
+#: life/gym/models.py:69
+msgid "Yellow"
+msgstr "Amarelo"
+
+#: life/gym/models.py:70
+msgid "Purple"
+msgstr "Roxo"
+
+#: life/gym/models.py:71
+msgid "Pink"
+msgstr "Rosa"
+
+#: life/gym/models.py:74
+msgid "Release"
+msgstr "Liberação"
+
+#: life/gym/models.py:75
+msgid "Stretching"
+msgstr "Alongamento"
+
+#: life/gym/models.py:76
+msgid "Mobility"
+msgstr "Mobilidade"
+
+#: life/gym/models.py:77
+msgid "Motor Control"
+msgstr "Controle Motor"
+
+#: life/gym/models.py:78
+msgid "Stability"
+msgstr "Estabilidade"
+
+#: life/gym/models.py:79
+msgid "Power"
+msgstr "Potência"
+
+#: life/gym/models.py:80
+msgid "Strength"
+msgstr "Força"
+
+#: life/gym/models.py:83
+msgid "Repetitions"
+msgstr "Repetições"
+
+#: life/gym/models.py:84
+msgid "Seconds"
+msgstr "Segundos"
+
+#: life/gym/models.py:86
+msgid "Programme"
+msgstr "Programa"
+
+#: life/gym/models.py:88
+msgid "Group"
+msgstr "Grupo"
+
+#: life/gym/models.py:89
+msgid "Order"
+msgstr "Ordem"
+
+#: life/gym/models.py:90
+msgid "Colour"
+msgstr "Cor"
+
+#: life/gym/models.py:91
+msgid "Sets"
+msgstr "Série"
+
+#: life/gym/models.py:92
+msgid "Qty. (Reps or Time)"
+msgstr "Qtd. (Repetições ou Tempo)"
+
+#: life/gym/models.py:93
+msgid "Unit"
+msgstr "Unidade"
+
+#: life/gym/models.py:94
+msgid "Load (Kg)"
+msgstr "Carga (Kg)"
+
+#: life/gym/models.py:95
+msgid "Observation"
+msgstr "Observação"
+
+#: life/gym/models.py:100
+msgid "Programme exercise"
+msgstr "Exercício do programa"
+
+#: life/gym/models.py:101
+msgid "Programme exercises"
+msgstr "Exercícios do programa"
+
+#~ msgid "Usuário"
+#~ msgstr "Usuário"
+
+#~ msgid "Ativo"
+#~ msgstr "Ativo"
+
+#~ msgid "Criado em"
+#~ msgstr "Criado em"
+
+#~ msgid "Programa do usuário"
+#~ msgstr "Programa do usuário"
+
+#~ msgid "Programas do usuário"
+#~ msgstr "Programas do usuário"
+
+#~ msgid "Nome do Exercício"
+#~ msgstr "Nome do Exercício"
+
+#~ msgid "URL do Vídeo"
+#~ msgstr "URL do Vídeo"
+
+#~ msgid "Exercício"
+#~ msgstr "Exercício"
+
+#~ msgid "Vermelho"
+#~ msgstr "Vermelho"
+
+#~ msgid "Verde"
+#~ msgstr "Verde"
+
+#~ msgid "Azul"
+#~ msgstr "Azul"
+
+#~ msgid "Amarelo"
+#~ msgstr "Amarelo"
+
+#~ msgid "Roxo"
+#~ msgstr "Roxo"
+
+#~ msgid "Rosa"
+#~ msgstr "Rosa"
+
+#~ msgid "Liberação"
+#~ msgstr "Liberação"
+
+#~ msgid "Alongamento"
+#~ msgstr "Alongamento"
+
+#~ msgid "Controle Motor"
+#~ msgstr "Controle Motor"
+
+#~ msgid "Estabilidade"
+#~ msgstr "Estabilidade"
+
+#~ msgid "Potência"
+#~ msgstr "Potência"
+
+#~ msgid "Força"
+#~ msgstr "Força"
+
+#~ msgid "Segundos"
+#~ msgstr "Segundos"
+
+#~ msgid "Grupo"
+#~ msgstr "Grupo"
+
+#~ msgid "Cor"
+#~ msgstr "Cor"
+
+#~ msgid "Série"
+#~ msgstr "Série"
+
+#~ msgid "Unidade"
+#~ msgstr "Unidade"
+
+#~ msgid "Exercício do programa"
+#~ msgstr "Exercício do programa"
+
+#~ msgid "Exercícios do programa"
+#~ msgstr "Exercícios do programa"

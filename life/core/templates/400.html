@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 
@@ -7,8 +8,8 @@
         <div class="col-md-8">
 
             <h1 class="mt-5">Error 400</h1>
-            <h3 class="ml-5 my-5">Bad request</h3>
-            <h5 class="ml-5">The performed request is invalid.</h5>
+            <h3 class="ml-5 my-5">{% trans "Bad request" %}</h3>
+            <h5 class="ml-5">{% trans "The performed request is invalid." %}</h5>
 
         </div>
     </div>

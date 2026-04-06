@@ -4,14 +4,14 @@ from django.utils.translation import gettext_lazy as _
 
 class TrainingProgram(models.Model):
     """A program of exercises for a given user"""
-    user = models.ForeignKey('auth.User', on_delete=models.CASCADE, verbose_name=_("Usuário"))
-    name = models.CharField(max_length=100, verbose_name=_("Nome do programa"))
-    active = models.BooleanField(default=True, verbose_name=_("Ativo"))
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Criado em"))
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE, verbose_name=_("User"))
+    name = models.CharField(max_length=100, verbose_name=_("Programme name"))
+    active = models.BooleanField(default=True, verbose_name=_("Active"))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Created at"))
 
     class Meta:
-        verbose_name = _("Programa do usuário")
-        verbose_name_plural = _("Programas do usuário")
+        verbose_name = _("User programme")
+        verbose_name_plural = _("User programmes")
 
     def __str__(self):
         return f"{self.user.first_name} {self.user.last_name} - {self.name}"
@@ -19,8 +19,8 @@ class TrainingProgram(models.Model):
 
 class Exercise(models.Model):
     """The exercise itself."""
-    name = models.CharField(max_length=100, verbose_name=_("Nome do Exercício"))
-    video_url = models.URLField(blank=True, verbose_name=_("URL do Vídeo"))
+    name = models.CharField(max_length=100, verbose_name=_("Exercise name"))
+    video_url = models.URLField(blank=True, verbose_name=_("Video URL"))
 
     @property
     def embed_url(self):
@@ -53,8 +53,8 @@ class Exercise(models.Model):
         return self.video_url
 
     class Meta:
-        verbose_name = _("Exercício")
-        verbose_name_plural = _("Exercícios")
+        verbose_name = _("Exercise")
+        verbose_name_plural = _("Exercises")
 
     def __str__(self):
         return self.name
@@ -63,42 +63,42 @@ class Exercise(models.Model):
 class ProgramExercise(models.Model):
     """The exercise in a program."""
     class ColorChoices(models.TextChoices):
-        RED = "#FFCCCC", _("Vermelho")
-        GREEN = "#CCFFCC", _("Verde")
-        BLUE = "#CCCCFF", _("Azul")
-        YELLOW = "#FFFFCC", _("Amarelo")
-        PURPLE = "#E5CCFF", _("Roxo")
-        PINK = "#FFCCE5", _("Rosa")
+        RED = "#FFCCCC", _("Red")
+        GREEN = "#CCFFCC", _("Green")
+        BLUE = "#CCCCFF", _("Blue")
+        YELLOW = "#FFFFCC", _("Yellow")
+        PURPLE = "#E5CCFF", _("Purple")
+        PINK = "#FFCCE5", _("Pink")
 
     class GroupChoices(models.TextChoices):
-        RELEASE = "release", _("Liberação")
-        STRETCHING = "stretching", _("Alongamento")
-        MOBILITY = "mobility", _("Mobilidade")
-        MOTOR_CONTROL = "motor_control", _("Controle Motor")
-        STABILITY = "stability", _("Estabilidade")
-        POWER = "power", _("Potência")
-        STRENGTH = "strength", _("Força")
+        RELEASE = "release", _("Release")
+        STRETCHING = "stretching", _("Stretching")
+        MOBILITY = "mobility", _("Mobility")
+        MOTOR_CONTROL = "motor_control", _("Motor Control")
+        STABILITY = "stability", _("Stability")
+        POWER = "power", _("Power")
+        STRENGTH = "strength", _("Strength")
 
     class UnitChoices(models.TextChoices):
-        REPETITIONS = "repetitions", _("Repetições")
-        SECONDS = "seconds", _("Segundos")
+        REPETITIONS = "repetitions", _("Repetitions")
+        SECONDS = "seconds", _("Seconds")
 
-    program = models.ForeignKey('TrainingProgram', on_delete=models.CASCADE, verbose_name=_("Programa"))
-    exercise = models.ForeignKey('Exercise', on_delete=models.CASCADE, verbose_name=_("Exercício"))
-    group = models.CharField(max_length=100, choices=GroupChoices.choices, verbose_name=_("Grupo"), default=GroupChoices.STRENGTH)
-    order = models.PositiveIntegerField(verbose_name=_("Ordem"))
-    color = models.CharField(max_length=10, choices=ColorChoices.choices, verbose_name=_("Cor"), blank=True, null=True)
-    sets = models.PositiveIntegerField(verbose_name=_("Série"))
-    repetitions_or_time = models.PositiveIntegerField(verbose_name=_("Qtd. (Repetições ou Tempo)"))
-    unit = models.CharField(max_length=15, choices=UnitChoices.choices, verbose_name=_("Unidade"), default=UnitChoices.REPETITIONS)
-    load = models.DecimalField(max_digits=5, decimal_places=1, verbose_name=_("Carga (Kg)"), blank=True, null=True)
-    observation = models.CharField(max_length=200, verbose_name=_("Observação"), blank=True, null=True)
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Criado em"))
+    program = models.ForeignKey('TrainingProgram', on_delete=models.CASCADE, verbose_name=_("Programme"))
+    exercise = models.ForeignKey('Exercise', on_delete=models.CASCADE, verbose_name=_("Exercise"))
+    group = models.CharField(max_length=100, choices=GroupChoices.choices, verbose_name=_("Group"), default=GroupChoices.STRENGTH)
+    order = models.PositiveIntegerField(verbose_name=_("Order"))
+    color = models.CharField(max_length=10, choices=ColorChoices.choices, verbose_name=_("Colour"), blank=True, null=True)
+    sets = models.PositiveIntegerField(verbose_name=_("Sets"))
+    repetitions_or_time = models.PositiveIntegerField(verbose_name=_("Qty. (Reps or Time)"))
+    unit = models.CharField(max_length=15, choices=UnitChoices.choices, verbose_name=_("Unit"), default=UnitChoices.REPETITIONS)
+    load = models.DecimalField(max_digits=5, decimal_places=1, verbose_name=_("Load (Kg)"), blank=True, null=True)
+    observation = models.CharField(max_length=200, verbose_name=_("Observation"), blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Created at"))
 
 
     class Meta:
-        verbose_name = _("Exercício do programa")
-        verbose_name_plural = _("Exercícios do programa")
+        verbose_name = _("Programme exercise")
+        verbose_name_plural = _("Programme exercises")
 
     def __str__(self):
         return f"{self.exercise.name}-{self.program.name}"
