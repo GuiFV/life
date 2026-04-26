@@ -37,17 +37,17 @@ class Exercise(models.Model):
             # Handle the standard YouTube watch URL
             if "watch?v=" in self.video_url:
                 video_id = self.video_url.split("watch?v=")[1].split("&")[0]
-                return f"https://www.youtube.com/embed/{video_id}"
+                return f"https://www.youtube-nocookie.com/embed/{video_id}"
 
             # Handle YouTube Shorts URLs
             elif "youtube.com/shorts/" in self.video_url:
                 video_id = self.video_url.split("youtube.com/shorts/")[1].split("?")[0]
-                return f"https://www.youtube.com/embed/{video_id}"
+                return f"https://www.youtube-nocookie.com/embed/{video_id}"
 
             # Handle shortened YouTube URLs
             elif "youtu.be/" in self.video_url:
                 video_id = self.video_url.split("youtu.be/")[1].split("?")[0]
-                return f"https://www.youtube.com/embed/{video_id}"
+                return f"https://www.youtube-nocookie.com/embed/{video_id}"
 
         # Default: return as-is, if no recognized pattern is found
         return self.video_url
